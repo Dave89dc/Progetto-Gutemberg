@@ -30,6 +30,7 @@ export class BooksPageComponent implements OnInit{
     this.page = event.pageIndex + 1;
     this.booksArray = [];
     this.isLoading = true;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     this.allBooks(this.page);
   }
 
