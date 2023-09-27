@@ -1,0 +1,21 @@
+<div class="main-box">
+    <app-header></app-header>
+    <h1 class="title">List Of Books</h1>
+    <div *ngIf="!isLoading" class="cards-container">
+        <app-book-card *ngFor="let book of booksArray" [book]="book"></app-book-card>
+    </div>
+    <div *ngIf="isLoading" class="loading-container">
+        <div class="loading-box">
+            <mat-spinner></mat-spinner>
+            <p class="loading-text">Loading...</p>
+        </div>
+    </div>
+    <mat-paginator class="paginator"
+        [length]="totalBooks" 
+        [pageSize]="32"
+        aria-label="Select page"
+        (page)="pageChange($event)"
+        [showFirstLastButtons]="true">
+    </mat-paginator>
+    <app-footer></app-footer>
+</div>
