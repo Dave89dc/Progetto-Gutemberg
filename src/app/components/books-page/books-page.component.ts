@@ -29,6 +29,7 @@ export class BooksPageComponent implements OnInit{
   pageChange(event: PageEvent) {
     this.page = event.pageIndex + 1;
     this.booksArray = [];
+    this.isLoading = true;
     this.allBooks(this.page);
   }
 
