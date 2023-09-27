@@ -15,7 +15,7 @@ export class BooksPageComponent implements OnInit{
   booksArray: Book[] = [];
   page: number = 1;
   totalBooks: number = 2239;
-  isLoading: boolean = false;
+  isLoading: boolean = true;
   color: ThemePalette = 'primary';
   mode: ProgressSpinnerMode = 'determinate';
   value = 50;
@@ -32,13 +32,12 @@ export class BooksPageComponent implements OnInit{
   }
 
   allBooks(page: number){
-    this.isLoading = true;
     this.dataService.getAllBooks(page).subscribe(
       books => {
         this.booksArray = books.results;
+        this.isLoading = false;
         console.log('Sono qui: ', books.results);
       });
-    this.isLoading = false;
   }
 
 }
